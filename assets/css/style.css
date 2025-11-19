@@ -30,7 +30,7 @@ body {
   top: 0;
   width: 100%;
   padding: 15px 10%;
-  background: rgba(0,0,0,0.6);
+  background: rgba(0, 0, 0, 0.6);
   backdrop-filter: blur(10px);
   display: flex;
   justify-content: space-between;
@@ -90,14 +90,21 @@ body {
 }
 
 .typed-text::after {
-  content: '|';
+  content: "|";
   margin-left: 3px;
   animation: blink 0.7s infinite;
 }
 
 @keyframes blink {
-  0%, 50%, 100% { opacity: 1; }
-  25%, 75% { opacity: 0; }
+  0%,
+  50%,
+  100% {
+    opacity: 1;
+  }
+  25%,
+  75% {
+    opacity: 0;
+  }
 }
 
 .social-links i {

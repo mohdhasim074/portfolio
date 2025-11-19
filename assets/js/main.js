@@ -1,5 +1,5 @@
 // Typing animation
-const text = "Java Developer | Django Developer | Video Editor";
+const text = "Java Developer | Python Developer | Video Editor";
 let i = 0;
 function typingAnimation() {
   document.querySelector(".typed-text").textContent = text.slice(0, i++);
@@ -8,31 +8,31 @@ function typingAnimation() {
 typingAnimation();
 
 // AJAX Contact Form
-document.getElementById('contactForm').addEventListener('submit', function(e){
-    e.preventDefault(); // Prevent page reload
+document.getElementById("contactForm").addEventListener("submit", function (e) {
+  e.preventDefault(); // Prevent page reload
 
-    const form = e.target;
-    const formData = new FormData(form);
-    const formMessage = document.getElementById('formMessage');
+  const form = e.target;
+  const formData = new FormData(form);
+  const formMessage = document.getElementById("formMessage");
 
-    fetch('sendMail.php', {
-        method: 'POST',
-        body: formData
+  fetch("sendMail.php", {
+    method: "POST",
+    body: formData,
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      if (data.success) {
+        formMessage.style.color = "green";
+        formMessage.textContent = data.message;
+        form.reset();
+      } else {
+        formMessage.style.color = "red";
+        formMessage.textContent = data.message;
+      }
     })
-    .then(response => response.json())
-    .then(data => {
-        if(data.success){
-            formMessage.style.color = 'green';
-            formMessage.textContent = data.message;
-            form.reset();
-        } else {
-            formMessage.style.color = 'red';
-            formMessage.textContent = data.message;
-        }
-    })
-    .catch(err => {
-        formMessage.style.color = 'red';
-        formMessage.textContent = 'Error sending message.';
-        console.error(err);
+    .catch((err) => {
+      formMessage.style.color = "red";
+      formMessage.textContent = "Error sending message.";
+      console.error(err);
     });
 });
