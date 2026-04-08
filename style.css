@@ -1,0 +1,27 @@
+body {
+  scroll-behavior: smooth;
+}
+
+/* Card hover animation */
+.card {
+  transition: all 0.3s ease;
+}
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Toast Notification */
+#toast {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+#toast.show {
+  opacity: 1;
+}
+
+/* Gradient buttons effect */
+button,
+a {
+  font-weight: 500;
+}
